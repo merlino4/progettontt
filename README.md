@@ -1,3 +1,23 @@
+
+## Grafiche
+
+Le grafiche sono reperibili da questo [link](https://zpl.io/Vxvl4lR) con le credenziali:
+
+>**username**: tag_ntt_project_work <br>
+>**password**: zeplin123!
+
+## Servizi
+
+I servizi REST disponibili sono:
+
+- Store => https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/stores.json
+- Wizard config => https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/wizard_config.json
+
+Per qualsiasi dubbio o domande sono a disposizione
+
+-----
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
