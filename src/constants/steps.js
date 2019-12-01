@@ -8,13 +8,13 @@ export default [
                 id: 100,
                 title: 'Tenere in ordine il mio giardino',
                 description: 'Falciatura ordinaria del prato, rifinitura aiuole',
-                image: ''
+                image: 'attivita_1.jpg'
             },
             {
                 id: 101,
                 title: 'Pulire e rinnovare il giardino',
                 description: 'Presenza di arbusti, erbe alte e spesse, piante infestanti da rimuovere',
-                image: ''
+                image: 'attivita_2.jpg'
             }
         ]
     },
@@ -26,19 +26,19 @@ export default [
                 id: 102,
                 title: 'Sono presenti aiuole e ostacoli di piccole dimensioni',
                 description: null,
-                image: null
+                image: 'ostacoli_1.jpg'
             },
             {
                 id: 103,
                 title: 'Sono presenti arbusti, alberi e ostacoli di grandi dimensioni',
                 description: null,
-                image: null
+                image: 'ostacoli_2.jpg'
             },
             {
                 id: 104,
                 title: 'No, non son presenti piante e ostacoli',
                 description: null,
-                image: null
+                image: 'ostacoli_3.jpg'
             }
         ]
     },
@@ -50,13 +50,13 @@ export default [
                 id: 105,
                 title: 'Sì, il mio terreno è pendente o presenta degli affossamenti',
                 description: null,
-                image: null
+                image: 'pendenza_1.jpg'
             },
             {
                 id: 106,
                 title: 'No, ho un terreno piano',
                 description: null,
-                image: null
+                image: 'ostacoli_2.jpg'
             }
         ]
     },
