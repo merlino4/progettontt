@@ -10,10 +10,21 @@ Le grafiche sono reperibili da questo [link](https://zpl.io/Vxvl4lR) con le cred
 
 I servizi REST disponibili sono:
 
-- Store => https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/stores.json
-- Wizard config => https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/wizard_config.json
-
-Per qualsiasi dubbio o domande sono a disposizione
+- Store lis
+>**URL**: https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/stores.json <br>
+> **Method**: GET
+- Wizard config
+> **URL**: https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/wizard_config.json <br>
+> **Method**: GET
+- Login
+> **URL**: https://api-dev-commercio.leroymerlin.it/api/v1/customer/1_0_0/authentication/login <br>
+> **Method**: POST <br>
+> **Headers**: {x-square-api-key: testToken} <br>
+> **Body**: {
+	"username": "tonio.cartonio@authent.it",
+	"password": "Prova123",
+	"rememberMe": false
+}
 
 -----
 
