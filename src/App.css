@@ -42,28 +42,7 @@
   margin: 16px;
 }
 
-.chip-container {
-  display: flex;
-  flex-direction: row;
-}
 
-.chip {
-  height: 24px;
-  width: 84px;
-  background-color: #e9e9e9;
-  border-radius: 12px;
-  font-size: 12px;
-  text-align: center;
-  color: #9b9b9b;
-  margin-right: 4px;
-  line-height: 24px;
-  cursor: pointer;
-}
-
-.chip.active {
-  background-color: #66cc33;
-  color: white;
-}
 
 .step-cards-container {
   display: flex;
@@ -99,23 +78,7 @@
   margin-top: 8px;
 }
 
-.button {
-  font-family: LeroyMerlinBold;
-  width: 376px;
-  height: 60px;
-  background-color: #66cc33;
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  line-height: 60px;
-  cursor: pointer;
-}
 
-.button.disabled {
-  background-color: transparent;
-  border: solid 1px #9b9b9b;
-  color: #9b9b9b;
-}
 
 /* MEDIA QUERY BREAKPONT EXAMPLE */
 
