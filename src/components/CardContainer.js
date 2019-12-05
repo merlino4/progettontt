@@ -16,23 +16,23 @@ class CardContainer extends React.Component {
         }
 
    // var submitChoice = this.submitChoice.bind(this);
-          this.resetSelectedCard = this.resetSelectedCard.bind(this); 
+      //    this.resetSelectedCard = this.resetSelectedCard.bind(this); 
     }
 
-    resetSelectedCard(){
-      this.setState({
-        selectedCard : ""
-      })
-    }
+    // resetSelectedCard(){
+    //   this.setState({
+    //     selectedCard : ""
+    //   })
+    // }
 
-    handleClick = (i)=>{
+    // handleClick = (i)=>{
 
-      this.setState({
-            selectedCard:i,
-        })
-        console.log(i)
+    //   this.setState({
+    //         selectedCard:i,
+    //     })
+    //     console.log(i)
 
-    }
+    // }
 
  //   submitChoice = () => {}
 
@@ -47,9 +47,9 @@ class CardContainer extends React.Component {
       const cards = answers.map((answer,index) => {
         //console.log(answer)
         return <Card 
-                  key={answer.id} 
+                  key={index} 
                   answer={answer} 
-                  onClick={() => this.handleClick(answer.id)}
+                  onClick={() => this.props.selectCard(index)}
                    />
       })
   
@@ -58,13 +58,7 @@ class CardContainer extends React.Component {
 
                 {cards}
 
-                <Button onClick = {this.props.submitChoice}  
-                        isActive = {this.state.selectedCard !==""} 
-                        onClickReset ={() => this.resetSelectedCard()}
-                         // isActive={this.state.selectedCard}
-                       // onClick={this.props.submitChoice()}
-        
-                  />
+
 
         </div>
       )

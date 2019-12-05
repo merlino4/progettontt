@@ -544,12 +544,32 @@ class App extends React.Component {
       stores:[],
       steps: [],
       selectedAnswers: [],
-      activeIndex: 1
+      activeIndex: 0
     }
     this.submitChoice = this.submitChoice.bind(this) 
   }
-    submitChoice() {   
-      this.setState({activeIndex:this.state.activeIndex+1});
+
+  selectCard = (i) => {
+    const {selectedAnswers, activeIndex} = this.state
+    selectedAnswers[activeIndex] = i 
+    this.setState({
+          selectedAnswers,
+      })
+      console.log(selectedAnswers)
+
+  }
+
+  // resetSelectedCard(){
+  //   this.setState({
+  //     selectedCard : ""
+  //   })
+  // }
+
+    submitChoice() {     
+         this.setState({
+        activeIndex:this.state.activeIndex+1
+      });
+ 
     }
 
   componentDidMount() {
@@ -579,11 +599,15 @@ class App extends React.Component {
     const {
       activeIndex,
       steps,
-      stores
+      stores,
+      selectedAnswers
     } = this.state
 
+    const currentSelection = selectedAnswers[activeIndex]
+    const continueDisabled = typeof currentSelection !== 'undefined'
+
     const currentStep = steps[activeIndex]
-    const cardContainer = currentStep ? <CardContainer submitChoice = {this.submitChoice} answers={currentStep.answers}></CardContainer> : null;
+    const cardContainer = currentStep ? <CardContainer selectCard = {this.selectCard} answers={currentStep.answers}></CardContainer> : null;
     const options = stores
       .map(store => (<option key={store.storeCode} value={store.storeCode}>{store.storeName}</option>));
 
@@ -605,7 +629,10 @@ class App extends React.Component {
           <br />
 
           {/* BUTTON  */}
-
+          <Button onClick = {this.submitChoice}  
+                  isActive = {continueDisabled} 
+                        //onClickReset ={() => this.resetSelectedCard()}
+                  />
 
           <select>
             {options}

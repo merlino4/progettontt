@@ -13,8 +13,11 @@ class Button extends React.Component {
         return(
 
             <button   
-
-                onClick = {() => {this.props.onClick();this.props.onClickReset()}}
+                disabled = {!this.props.isActive}
+                onClick = {
+                    () => {
+                        this.props.onClick()
+                        }}
                 className={activeButton} >
                 
                 Continua
