@@ -526,8 +526,8 @@ class App extends React.Component {
     //console.log(wizard.navigate([1, 1, 0, 0], tree, 4))
     const completed = true;
 
-   // const resultsComponent =
-     // completed && results ? <Results results={results} /> : null;
+    const resultsComponent =
+      completed && results ? <Results results={results} /> : null;
 
     const currentStep = steps[activeIndex];
     const cardContainer = /*  !completed &&  */ currentStep ? (

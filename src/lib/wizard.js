@@ -26,4 +26,6 @@ const navigate = (selection, tree, numberOfSteps) => {
 
     return lastElement.results
 }
-export default navigate;
+export default {
+navigate
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import wizard from '../lib/wizard'
 class Results extends React.Component {
 render(){
 
