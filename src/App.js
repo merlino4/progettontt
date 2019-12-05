@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import BreadCrumb from './components/Breadcrumb'
 import CardContainer from './components/CardContainer'
+import Button from './components/Button';
 
 
 
@@ -545,7 +546,11 @@ class App extends React.Component {
       selectedAnswers: [],
       activeIndex: 1
     }
+    this.submitChoice = this.submitChoice.bind(this) 
   }
+    submitChoice() {   
+      this.setState({activeIndex:this.state.activeIndex+1});
+    }
 
   componentDidMount() {
     axios
@@ -555,6 +560,7 @@ class App extends React.Component {
       this.setState({
         stores
       })
+      console.log(this.state.activeIndex)
     })
 
     axios
@@ -568,6 +574,8 @@ class App extends React.Component {
 
   render() {
 
+
+
     const {
       activeIndex,
       steps,
@@ -575,9 +583,7 @@ class App extends React.Component {
     } = this.state
 
     const currentStep = steps[activeIndex]
-   // console.log('currentstep',currentStep)
-//currentsteps.answers[0].id
-    const cardContainer = currentStep ? <CardContainer answers={currentStep.answers}></CardContainer> : null;
+    const cardContainer = currentStep ? <CardContainer submitChoice = {this.submitChoice} answers={currentStep.answers}></CardContainer> : null;
     const options = stores
       .map(store => (<option key={store.storeCode} value={store.storeCode}>{store.storeName}</option>));
 
@@ -593,15 +599,13 @@ class App extends React.Component {
 
           <br />
 
-          {/* CARDS CONTAIONER  */}
+          {/* CARDS CONTAINER  */}
           {cardContainer}
 
           <br />
 
-          {/* BUTTON
-          <div className="button disabled">
-            <span>CONTINUA</span>
-          </div> */}
+          {/* BUTTON  */}
+
 
           <select>
             {options}
