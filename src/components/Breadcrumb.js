@@ -14,8 +14,13 @@ class BreadCrumb extends React.Component {
   
       const chips = steps
         .map((step,index) => {
-          return <Chip key={index} title={step.category} active={activeIndex >= index} />
-        })
+
+          return <Chip 
+                  key={index} 
+                  title={step.category} 
+                  onClick = {()=> this.props.selectChip(index)} 
+                  active={activeIndex >= index} />
+              })
   
       return (
         <div className="chip-container">

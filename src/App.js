@@ -478,6 +478,17 @@ class App extends React.Component {
       activeIndex: 0
     };
     this.submitChoice = this.submitChoice.bind(this);
+    this.selectChip = this.selectChip.bind(this);
+
+  }
+
+  selectChip(chipIndex){
+    const removedAnswers = this.state.selectedAnswers.slice(0,chipIndex)
+      this.setState({
+        activeIndex: chipIndex,
+        selectedAnswers:removedAnswers
+      })
+      console.log(removedAnswers)
   }
 
   selectCard = i => {
@@ -536,6 +547,7 @@ class App extends React.Component {
       <CardContainer
         selectCard={this.selectCard}
         answers={currentStep.answers}
+        question = {currentStep.question}
       />
     ) : null;
 
@@ -545,7 +557,14 @@ class App extends React.Component {
           treeResult={treeResult} />)
         : null;
 
-
+        const button =
+        !completed
+            ? (<Button
+                onClick={this.submitChoice}
+                isActive={continueDisabled}
+              />
+              )
+            : null; 
 
     const options = stores.map(store => (
       <option key={store.storeCode} value={store.storeCode}>
@@ -560,7 +579,7 @@ class App extends React.Component {
         </header>
         <div className="App-container">
           {/* CHIP CONTAINER */}
-          <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
+          <BreadCrumb activeIndex={activeIndex} selectChip = {this.selectChip} steps={steps}></BreadCrumb>
 
           <br />
 
@@ -570,12 +589,9 @@ class App extends React.Component {
           <br />
 
           {/* BUTTON  */}
-          <Button
-            onClick={this.submitChoice}
-            isActive={continueDisabled}
-          //onClickReset ={() => this.resetSelectedCard()}
-          />
-
+          {button}
+        
+              
           {/*  RESULTS */}
           {resultsComponent}
 

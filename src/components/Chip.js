@@ -14,8 +14,10 @@ class Chip extends React.Component {
       const activeClassName = active ? 'chip active' : 'chip';
   
       return (
-        <div className={activeClassName}>
-          <span>{title}</span>
+        <div 
+            className = {activeClassName}
+            onClick = {active ? this.props.onClick : () =>{} } >    
+              <span>{title}</span>
         </div>
       )
   

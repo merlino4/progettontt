@@ -38,7 +38,7 @@ class Results extends React.Component {
 
 
         )
-        console.log(treeResult);
+       // console.log(treeResult);
         return (
             <div>
                 {renderMap}
