@@ -471,9 +471,9 @@ class App extends React.Component {
     this.state = {
       stores: [],
       steps: [],
-      results:[],
+      results: [],
       tree: undefined,
-
+      complete: false,
       selectedAnswers: [],
       activeIndex: 0
     };
@@ -490,8 +490,10 @@ class App extends React.Component {
   };
 
   submitChoice() {
+    const newActiveIndex = this.state.activeIndex + 1
+    const completed = newActiveIndex >= this.state.steps.length;
     this.setState({
-      activeIndex: this.state.activeIndex + 1
+      activeIndex: newActiveIndex, completed
     });
   }
 
@@ -510,32 +512,41 @@ class App extends React.Component {
       this.setState({
         steps: WIZARD.steps,
         tree: WIZARD.tree,
-        results:WIZARD.results
+        results: WIZARD.results
 
       });
-      console.log(this.state.tree)
+
     });
   }
 
   render() {
-    const { activeIndex, steps, stores, selectedAnswers, tree } = this.state;
-
+    const { activeIndex, steps, stores, selectedAnswers, tree, results, completed } = this.state;
     const currentSelection = selectedAnswers[activeIndex];
     const continueDisabled = typeof currentSelection !== "undefined";
-    const results = wizard.navigate(selectedAnswers, tree, steps.length);
+    const treeResult = wizard.navigate(selectedAnswers, tree, steps.length);
     //console.log(wizard.navigate([1, 1, 0, 0], tree, 4))
-    const completed = true;
+    // const completed = true;
 
-    const resultsComponent =
-      completed && results ? <Results results={results} /> : null;
-
+    console.log(selectedAnswers,tree, steps.length );
+    console.log(treeResult);
+    
     const currentStep = steps[activeIndex];
-    const cardContainer = /*  !completed &&  */ currentStep ? (
+
+    const cardContainer = currentStep && !completed ? (
       <CardContainer
         selectCard={this.selectCard}
         answers={currentStep.answers}
-      ></CardContainer>
+      />
     ) : null;
+
+    const resultsComponent =
+      completed ? (
+        <Results results={results}
+          treeResult={treeResult} />)
+        : null;
+
+
+
     const options = stores.map(store => (
       <option key={store.storeCode} value={store.storeCode}>
         {store.storeName}
@@ -562,11 +573,11 @@ class App extends React.Component {
           <Button
             onClick={this.submitChoice}
             isActive={continueDisabled}
-            //onClickReset ={() => this.resetSelectedCard()}
+          //onClickReset ={() => this.resetSelectedCard()}
           />
 
           {/*  RESULTS */}
-         {/*  {resultsComponent} */}
+          {resultsComponent}
 
           <select>{options}</select>
         </div>

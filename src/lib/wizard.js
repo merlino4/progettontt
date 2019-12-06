@@ -1,31 +1,65 @@
 
+// const navigate = (selection, tree, numberOfSteps) => {
+//     if (!numberOfSteps <= 0) {
+//         return undefined
+//     }
+//     if (!tree) {
+//         return undefined
+//     }
+//     if (!tree.children) {
+//         return undefined
+//     }
+//     if (!selection) {
+//         return undefined
+//     }
+
+//     if (selection.length < numberOfSteps) {
+//         return undefined
+//     }
+
+//     const lastElement = selection
+//         .reduce((acc, currentSelection) => {
+//             if (!acc) {
+//                 return acc
+//             }
+//             return acc.children[currentSelection]
+//         }, tree)
+
+//     if (!lastElement) {
+//         return undefined
+//     }
+
+
+//     return lastElement.results
+// }
 const navigate = (selection, tree, numberOfSteps) => {
+    if (numberOfSteps <= 0) {
+      return undefined;
+    }
     if (!tree) {
-        return undefined
+      return undefined;
+    }
+    if (!tree.children) {
+      return undefined;
     }
     if (!selection) {
-        return undefined
+      return undefined;
     }
-
     if (selection.length < numberOfSteps) {
-        return undefined
+      return undefined;
     }
-
-    const lastElement = selection
-        .reduce((acc, currentSelection) => {
-            if (!acc) {
-                return acc
-            }
-            return acc.children[currentSelection]
-        }, tree)
-
+    const lastElement = selection.reduce((acc, currentSelection) => {
+      if (!acc) {
+        return acc;
+      }
+      return acc.children[currentSelection];
+    }, tree);
     if (!lastElement) {
-        return undefined
+      return undefined;
     }
+    return lastElement.results;
+  }
 
-
-    return lastElement.results
-}
 export default {
 navigate
 }

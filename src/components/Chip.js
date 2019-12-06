@@ -3,6 +3,7 @@ import '../style/chip.css';
 import axios from 'axios';
 
 
+
 class Chip extends React.Component {
     render(){
       const {

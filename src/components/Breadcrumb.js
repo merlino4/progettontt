@@ -1,7 +1,8 @@
 import React from 'react';
 import '../style/chip.css';
-import axios from 'axios';
 import Chip from './Chip'
+import axios from 'axios';
+
 
 
 class BreadCrumb extends React.Component {
