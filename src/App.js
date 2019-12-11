@@ -515,24 +515,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-/*     axios
-      .get(URLS.STORES)
-      .then(r => r.data)
-      .then(stores => {
-        this.setState({
-          stores
-        });
-        console.log(this.state.activeIndex);
-      }); */
 
-    axios.get(URLS.WIZARD).then(wizard => {
+
+    axios.get(URLS.WIZARD).then(response => {
+      const wizard = response.data
       this.setState({
-        steps: WIZARD.steps,
-        tree: WIZARD.tree,
-        results: WIZARD.results
-
+        steps: wizard.steps,
+        tree: wizard.tree,
+        results: wizard.results
       });
-
     });
   }
 
