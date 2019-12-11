@@ -3,6 +3,7 @@ import axios from "axios";
 import {Redirect} from 'react-router-dom'
 import '../style/store.css'
 import Header from '../components/Header'
+import Bg from '../assets/img/attivita_2.jpg'
 
 const URLS = {
     STORES:
@@ -48,9 +49,6 @@ componentDidMount(){
         selectedStore: e.target.value
       })
     }
-    // activeRedirect= () =>{
-    //   if()
-    // }
     render(){
         const options = this.state.stores.map(store => (
             <option key={store.storeCode} value={store.storeCode}>
@@ -61,8 +59,9 @@ componentDidMount(){
           
         return(
           <div className="stores">
-                  
-                  <Header />
+                  <img src={Bg} className="bg" alt="bg" id="bgPhoto"/>
+                  <Header 
+                  className ="backgroundLogo"/>
                   <div className="content">
                   
 
@@ -72,13 +71,13 @@ componentDidMount(){
                      </select>
                   
                    {this.renderRedirect()}
-                   {/* {this.activeRedirect()} */}
+                  <div className="contentButton">
                    <button 
                    onClick={this.setRedirect} 
                    className="bottone" 
                    disabled={!this.state.selectedStore}>
-                    Redirect</button>
-                   
+                    <span>Continua</span></button>
+                    </div>
                    </div>
             </div>
             

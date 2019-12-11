@@ -29,6 +29,7 @@
 }
 .App {
   font-family: LeroyMerlinRegular;
+  width: 100%;
 }
 
 .App-logo {
@@ -38,6 +39,7 @@
 
 .App-header {
   border-bottom: 3px solid #66cc33;
+  background-color: white;
 }
 
 .App-container {
