@@ -3,6 +3,7 @@ import React from "react";
 //import "./App.css";
 import axios from "axios";
 //import wizard from './lib/wizard'
+import {NavLink} from 'react-router-dom'
 
 const URLS = {
     STORES:
@@ -41,6 +42,9 @@ componentDidMount(){
         return(
             <div>
                    <select>{options}</select>
+                   <button className="bottone">
+                    <NavLink to="/wizard">Continua</NavLink>
+                   </button>
             </div>
         );
     }

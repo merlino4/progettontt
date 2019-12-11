@@ -1,7 +1,7 @@
 import React from "react";
 /* import { Link, Route,Switch } from 'react-router-dom';
  */
-import { Router, Route, Switch } from "react-router";
+import { Route,BrowserRouter,Switch } from "react-router-dom";
 
 import logo from "./assets/img/logo.svg";
 import "./App.css";
@@ -12,6 +12,7 @@ import Button from "./components/Button";
 import Results from "./components/Results";
 import Stores from "./components/Stores";
 import wizard from './lib/wizard'
+import Navigation from './components/Navigation'
 
 const WIZARD = {
   steps: [
@@ -578,6 +579,7 @@ class App extends React.Component {
     )); */
 
     return (
+      
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -603,16 +605,25 @@ class App extends React.Component {
           {resultsComponent}
 
           {/* <select>{options}</select> */}
-          <Stores/>
-
-  {/*     <Switch>
-        <Route exact path="/" component={Stores}/>
+          {/* <Stores/> */}
+          
+      <BrowserRouter>
+      <div>
+      <Navigation/>
+      <Switch>
+      <Route path="/stores" component={Stores}/>
+      </Switch>
+      </div>
+      </BrowserRouter>
+      {/* <Switch>
+        <Route exact path="/stores" component={Stores}/>
         <Route path="/products" component={Products}/>
         <Route path="/category" component={Category}/>  
       </Switch> */}
 
         </div>
       </div>
+      
     );
   }
 }
