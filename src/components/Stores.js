@@ -17,7 +17,7 @@ class Stores extends React.Component {
         this.state = {
           stores: [],
           redirect: false,
-          isActive:false
+          selectedStore:undefined
         };
     }
 
@@ -43,6 +43,11 @@ componentDidMount(){
         return <Redirect to='/wizard' />
       }
     }
+    changeStore = (e) =>{
+      this.setState({
+        selectedStore: e.target.value
+      })
+    }
     // activeRedirect= () =>{
     //   if()
     // }
@@ -61,8 +66,8 @@ componentDidMount(){
                   <div className="content">
                   
 
-                   <select> 
-                   {/* <option key={null} value={null}> Select a store </option> */}
+                   <select value={this.state.selectedStore} onChange={this.changeStore}> 
+                   <option value=""> Select a store </option>
                      {options} 
                      </select>
                   
@@ -71,7 +76,7 @@ componentDidMount(){
                    <button 
                    onClick={this.setRedirect} 
                    className="bottone" 
-                   disabled={false}>
+                   disabled={!this.state.selectedStore}>
                     Redirect</button>
                    
                    </div>
