@@ -1,4 +1,8 @@
 import React from "react";
+/* import { Link, Route,Switch } from 'react-router-dom';
+ */
+import { Router, Route, Switch } from "react-router";
+
 import logo from "./assets/img/logo.svg";
 import "./App.css";
 import axios from "axios";
@@ -6,6 +10,7 @@ import BreadCrumb from "./components/Breadcrumb";
 import CardContainer from "./components/CardContainer";
 import Button from "./components/Button";
 import Results from "./components/Results";
+import Stores from "./components/Stores";
 import wizard from './lib/wizard'
 
 const WIZARD = {
@@ -459,8 +464,8 @@ const WIZARD = {
 };
 
 const URLS = {
-  STORES:
-    "https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/stores.json",
+/*   STORES:
+    "https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/stores.json", */
   WIZARD:
     "https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/wizard_config.json"
 };
@@ -469,7 +474,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stores: [],
+ //     stores: [],
       steps: [],
       results: [],
       tree: undefined,
@@ -483,12 +488,12 @@ class App extends React.Component {
   }
 
   selectChip(chipIndex){
-    const removedAnswers = this.state.selectedAnswers.slice(0,chipIndex)
+    const remainingAnswers = this.state.selectedAnswers.slice(0,chipIndex)
       this.setState({
         activeIndex: chipIndex,
-        selectedAnswers:removedAnswers
+        selectedAnswers:remainingAnswers
       })
-      console.log(removedAnswers)
+      console.log(remainingAnswers)
   }
 
   selectCard = i => {
@@ -509,7 +514,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios
+/*     axios
       .get(URLS.STORES)
       .then(r => r.data)
       .then(stores => {
@@ -517,7 +522,7 @@ class App extends React.Component {
           stores
         });
         console.log(this.state.activeIndex);
-      });
+      }); */
 
     axios.get(URLS.WIZARD).then(wizard => {
       this.setState({
@@ -566,11 +571,11 @@ class App extends React.Component {
               )
             : null; 
 
-    const options = stores.map(store => (
+/*     const options = stores.map(store => (
       <option key={store.storeCode} value={store.storeCode}>
         {store.storeName}
       </option>
-    ));
+    )); */
 
     return (
       <div className="App">
@@ -589,13 +594,23 @@ class App extends React.Component {
           <br />
 
           {/* BUTTON  */}
+          <div className="bottone">
           {button}
+          </div>
         
               
           {/*  RESULTS */}
           {resultsComponent}
 
-          <select>{options}</select>
+          {/* <select>{options}</select> */}
+          <Stores/>
+
+  {/*     <Switch>
+        <Route exact path="/" component={Stores}/>
+        <Route path="/products" component={Products}/>
+        <Route path="/category" component={Category}/>  
+      </Switch> */}
+
         </div>
       </div>
     );

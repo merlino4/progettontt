@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import axios from 'axios';
+import'../style/cardContainer.css'
 import Card from './Card';
 import CardButton from './CardButton';
 
@@ -14,14 +14,25 @@ class CardContainer extends React.Component {
     this.state = {
      // selectedCard: ""
       //cards:[]
-    }
   }
+    }
+  
+    // toggle() {
+    //   this.setState({addClass: !this.state.addClass});
+    // }
+    // let stepCardContainer = ["step-card-container"];
+    // if(this.state.addClass) {
+    //   stepCardContainer.push('display');
+    // }
 
   render() {
     const {
       answers,
       question
     } = this.props
+
+
+
 
     const cards = answers.map((answer, index) => {
       if (answer.image) {
@@ -31,19 +42,31 @@ class CardContainer extends React.Component {
           onClick={() => this.props.selectCard(index)}
               />       
       }
-      else return <CardButton
+      else return   <CardButton
                     key={index}
                     answer={answer}
                     onClick = {() => this.props.selectCard(index)}
               />
     })
 
+    const classCardsContainer = answers[0].image
+    ? "step-cards-container"
+    : "step-cards-container-button";
+    
+  
+    
     return (
-      <div className="step-cards-container">
+      <div>
+      <div className="titolo">
         <h2>{question}</h2>
+        </div>
+      {/* <div className="step-cards-container">
 
         {cards}
 
+      </div> */}
+      <div className={classCardsContainer}>{cards}</div>
+      
       </div>
     )
   }

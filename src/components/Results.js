@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import img from '../../src/assets/img/attivita_1.jpg'
+import '../style/result.css'
 
 class Results extends React.Component {
     render() {
@@ -27,11 +28,26 @@ class Results extends React.Component {
             return treeResult.includes(r.id)
         })
         const renderMap = selectedResultsFilter.map(res => (
+            <div className="finalCard">
+                <h1>ecco cosa abbiamo trovato per te</h1>
+                <div className="resultDesktop">
             <div className="results" key={res.id}>
+            <div className="resultTitle">
+                <h2>{res.title}</h2>
+                </div>
+                <div className="contentResult">
+                <div className="resultPhoto">
                 <img  src={img} alt="immagine"></img>
-                <h1>{res.title}</h1>
-                <h1>{res.description}</h1>
+                </div>
+                <div className="resultDescription">
+                <p>{res.description}</p>
+                </div>
+                </div>
+                <div className="redirectButton">
                 <a href={res.url} target="_blank" rel="noopener noreferrer">vai allo store</a>
+                </div>
+                </div> 
+            </div>
             </div>
 
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import axios from 'axios';
+import '../style/cardButton.css'
 
 
 
@@ -27,8 +28,8 @@ class Card extends React.Component {
         title,
         id
       } = answer
-  
       return (
+        
         <div className="cardButton">
           
           <button 
@@ -36,7 +37,6 @@ class Card extends React.Component {
             className="title">
                 {title}              
           </button>
-
         </div>
       )
     }

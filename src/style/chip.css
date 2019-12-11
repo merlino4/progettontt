@@ -20,3 +20,13 @@
     background-color: #66cc33;
     color: white;
   }
+  @media (min-width: 900px) {
+    .chip-container {
+      justify-content: center;
+    }
+  }
+  @media (min-width: 600px) {
+    .chip-container {
+      justify-content: center;
+    }
+  }

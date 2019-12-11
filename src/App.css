@@ -24,7 +24,9 @@
     url('./assets/fonts/LeroyMerlinSansLight.ttf') format('truetype'),
     url('./assets/fonts/LeroyMerlinSansLight.svg#3dumbregular') format('svg');
 }
-
+*{
+  outline: none;
+}
 .App {
   font-family: LeroyMerlinRegular;
 }
@@ -42,7 +44,14 @@
   margin: 16px;
 }
 
-
+.step-cards-container-button{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow: auto;
+  align-items: center;
+}
 
 .step-cards-container {
   display: flex;
@@ -61,7 +70,16 @@
   opacity: .8;
 }
 
+.interactivePhoto:focus img{
+ filter: blur(2px); 
+ opacity: .4;
+ background-color: rgba(0,0,0,0.2);
+ z-index: 10;
+}
+
+
 .step-card img {
+  border: 1px solid white;
   border-radius: 8px;
   width: 315px;
   height: 322px;
@@ -79,19 +97,83 @@
 }
 
 
-
 /* MEDIA QUERY BREAKPONT EXAMPLE */
 
 /* tablet portrait */
-@media (min-width: 600px) {
+@media (min-width: 601px) {
   .App-logo {
     height: 47px;
     margin: 8px;
   }
+  
 }
 
 /* tablet landscape */
-@media (min-width: 900px) {}
+@media (min-width: 900px) {
+  .step-cards-container {
+    flex-direction: row;
+    justify-content: center;
+}
+.bottone{
+  text-align: center;
+}
+}
+@media (min-width: 600px) {
+  .step-cards-container {
+    flex-direction: row;
+    justify-content: center;
+}
+.bottone{
+  text-align: center;
+}
+}
 
 /* desktop */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+  .App-logo {
+    height: 47px;
+    margin: 8px;
+  }
+  .App-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.chip-container {
+  justify-content: center;
+}
+.bottone{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.step-cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  flex-direction: row;
+  justify-content: center;
+}
+}
+
+
+
+@media (max-width: 600px) {
+  .App-logo {
+    height: 47px;
+    margin: 8px;
+  }
+  .App-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.chip-container {
+  justify-content: center;
+}
+.bottone{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+}
